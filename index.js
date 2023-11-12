@@ -1,13 +1,12 @@
-let mocha = require('mocha')
 
 class SortedList {
-  constructor(items,length) {
-     this.items = items;
-     this.length = length;
+  constructor() {
+     this.items = [];
+     this.length = 0;
   }
 
   add(item) {
-    
+
     this.items.push(item);
 
     this.length = this.items.length;
@@ -29,12 +28,11 @@ class SortedList {
 
   get(pos) {
 
-    if(pos<0 && p>=this.items.length){
+    if(pos>=0 && pos < this.items.length){
+      return this.items[pos]
+    }else{
       throw new Error('OutOfBounds');
-    }
-    else{
-      return this.items[pos];
-    }
+    }  
     
   }
 
@@ -42,9 +40,9 @@ class SortedList {
      if(this.items.length===0){
       throw new Error('EmptySortedList')
      }
-     else{
+    else{
         return this.items[this.items.length-1];
-     }
+    }
   }
 
   min() {
@@ -57,17 +55,20 @@ class SortedList {
   }
 
   sum() {
+    
      let sum = this.items.reduce((accum, current)=>{
       return accum + current
-     })
+     },0)
      return sum;
   }
 
   avg() {
-    let sum = this.items.reduce((accum, current)=>{
-      return accum + current
-     })
-    let average = sum/this.items.length;
+    if(this.items.length===0){
+      throw new Error('EmptySortedList')
+    }
+
+    let total_sum = this.sum() 
+    let average = total_sum/this.items.length;
     return average;
   }
 }
