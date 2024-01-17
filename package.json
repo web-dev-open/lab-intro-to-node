@@ -13,4 +13,7 @@
   ],
   "author": "supoort@rootlearn.com",
   "license": "MIT"
+  " dependencies ": {
+    "mocha": "^10.2.0"
+  }
 }
