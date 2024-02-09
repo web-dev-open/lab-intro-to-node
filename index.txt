@@ -1,0 +1,36 @@
+class SortedList {
+  constructor(arr) {
+    this.items =arr ;
+    this.length= 0;
+    this.number= null;
+  }
+
+  add(item) {
+    this.items.sort()
+    for(let i =0; i < this.items.length;i++){
+   
+      if(this.items[i] <= item){
+        this.number = this.items[i]
+      }
+    }
+    console.log(this.number)
+    let Nindex = this.items.indexOf(this.number)
+    this.items.splice(Nindex+1,0,item)
+
+  }
+
+  get(pos) {}
+
+  max() {}
+
+  min() {}
+
+  sum() {}
+
+  avg() {}
+}
+let alfie = new SortedList([9, 3, 5,2])
+alfie.add(0)
+console.log(alfie.items);
+
+// module.exports = SortedList;
